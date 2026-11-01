@@ -9,22 +9,20 @@ import kotlinx.coroutines.flow.*
 // semua TODO di bawah — itu normal untuk latihan ini!
 
 class CounterManager {
-    // TODO: Buat MutableStateFlow dengan nilai awal 0
-    // private val _count = ???
+    private val _count = MutableStateFlow(0)
 
-    // TODO: Expose sebagai StateFlow (read-only)
-    // val count: StateFlow<Int> = ???
+    val count: StateFlow<Int> = _count.asStateFlow()
 
     fun increment() {
-        // TODO: Tambah nilai count
+        _count.update { it + 1 }
     }
 
     fun decrement() {
-        // TODO: Kurangi nilai count (minimum 0)
+        _count.update { current -> (current - 1).coerceAtLeast(0) }
     }
 
     fun reset() {
-        // TODO: Reset ke 0
+        _count.value = 0
     }
 }
 

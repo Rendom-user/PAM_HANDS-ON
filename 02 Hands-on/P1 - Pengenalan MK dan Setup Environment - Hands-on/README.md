@@ -2,7 +2,7 @@
 
 Proyek Kotlin Multiplatform (KMP) + Compose Multiplatform untuk 3 latihan praktikum Pertemuan 1 (IF25-22017 — Pengembangan Aplikasi Mobile, ITERA).
 
-Berbeda dari `Kotlin Dasar/`, folder ini adalah proyek KMP **sungguhan**: satu modul `composeApp` dengan source set `commonMain` (kode bersama), `androidMain`, `iosMain`, dan `desktopMain` — persis seperti struktur yang dijelaskan di slide `P1 - Pengenalan MK dan Setup Environment.pdf` (hal. 18).
+Folder ini adalah proyek KMP + Compose Multiplatform dengan satu modul `composeApp`. Pada lingkungan Windows, target yang digunakan adalah `commonMain`, `androidMain`, dan `desktopMain`; source iOS tetap tersedia sebagai referensi, tetapi target iOS tidak diaktifkan karena build iOS memerlukan macOS dan Xcode.
 
 ## Capaian Pembelajaran
 
@@ -19,8 +19,8 @@ Berbeda dari `Kotlin Dasar/`, folder ini adalah proyek KMP **sungguhan**: satu m
 3. Pilih salah satu run configuration:
    - **Android** — pilih configuration `composeApp`, pilih emulator/device, klik ▶️ (atau `./gradlew :composeApp:installDebug`).
    - **Desktop** — jalankan `./gradlew :composeApp:run` dari terminal (paling cepat untuk coba-coba tanpa emulator).
-   - **iOS** *(khusus Mac + Xcode)* — proyek ini **tidak menyertakan** folder `iosApp/` (proyek Xcode) karena keterbatasan lingkungan pembuatan. Untuk mencoba di iOS: buat proyek baru lewat [kmp.jetbrains.com](https://kmp.jetbrains.com) (Metode 1 di slide hal. 22), lalu salin isi `composeApp/src/` dari folder ini ke proyek barumu.
-4. Di `App.kt`, kamu akan melihat menu untuk berpindah antara Latihan 1-3 dan Solusi 1-3 (menu ini pakai state sederhana, bukan Navigation Component — itu materi Pertemuan 5).
+   - **iOS** *(khusus Mac + Xcode)* — target iOS dinonaktifkan pada proyek Windows ini agar Gradle sync stabil. Untuk mencoba di iOS, aktifkan kembali target iOS pada Mac dan buat proyek Xcode melalui [Kotlin Multiplatform Wizard](https://kmp.jetbrains.com).
+4. Di `App.kt`, kamu akan melihat menu untuk berpindah antara Latihan 1-3 (menu ini pakai state sederhana, bukan Navigation Component — itu materi Pertemuan 5).
 5. Buka file di `composeApp/src/commonMain/kotlin/.../latihan/`, lengkapi bagian `TODO`, lalu jalankan ulang untuk melihat hasilnya.
 
 ## Daftar Latihan
@@ -38,8 +38,23 @@ Implementasikan counter sederhana dengan tombol `+`/`-` menggunakan `remember { 
 ### 3. `Handson3ProfileCard.kt` — Layout Dasar
 Susun kartu profil (nama, NIM, platform) menggunakan `Card`, `Column`, `Row`, dan `Modifier`.
 
-- **Catatan:** fungsi ini sengaja belum menampilkan apa-apa selain placeholder sebelum semua TODO dilengkapi.
 - **Konsep:** `Card`, layout composable (`Column`/`Row`), `Modifier` yang chainable.
+
+## Bukti Hasil
+
+### Desktop
+
+| Menu | Platform Info |
+| --- | --- |
+| ![Menu Desktop](assets/desktop/01-menu.png) | ![Platform Info Desktop](assets/desktop/02-platform-info.png) |
+| Counter | Profile Card |
+| ![Counter Desktop](assets/desktop/03-counter.png) | ![Profile Card Desktop](assets/desktop/04-profile-card.png) |
+
+### Android
+
+| Menu | Profile Card |
+| --- | --- |
+| ![Menu Android](assets/mobile/01-menu.png) | ![Profile Card Android](assets/mobile/02-profile-card.png) |
 
 ## Troubleshooting
 

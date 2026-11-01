@@ -2,7 +2,7 @@
 
 Proyek Kotlin Multiplatform (KMP) + Compose Multiplatform untuk 3 latihan praktikum Pertemuan 3 (IF25-22017 — Pengembangan Aplikasi Mobile, ITERA).
 
-Sama seperti `P1 - Pengenalan MK dan Setup Environment - Hands-on/`, ini adalah proyek KMP sungguhan: satu modul `composeApp` dengan source set `commonMain`, `androidMain`, `iosMain`, dan `desktopMain`. Ketiga latihan di bawah diambil langsung dari slide `P3 - Compose Multiplatform Basics.pdf` (halaman 30-32), yang sudah menyediakan template code dan expected result-nya.
+Ini adalah proyek KMP + Compose Multiplatform dengan satu modul `composeApp`. Pada Windows, target yang digunakan adalah `commonMain`, `androidMain`, dan `desktopMain`; source iOS tetap tersedia sebagai referensi, tetapi target iOS tidak diaktifkan karena build iOS memerlukan macOS dan Xcode.
 
 ## Capaian Pembelajaran
 
@@ -18,8 +18,8 @@ Sama seperti `P1 - Pengenalan MK dan Setup Environment - Hands-on/`, ini adalah 
 2. Pilih salah satu run configuration:
    - **Android** — pilih configuration `composeApp`, pilih emulator/device, klik ▶️ (atau `./gradlew :composeApp:installDebug`).
    - **Desktop** — jalankan `./gradlew :composeApp:run` dari terminal (paling cepat untuk coba-coba tanpa emulator).
-   - **iOS** *(khusus Mac + Xcode)* — proyek ini **tidak menyertakan** folder `iosApp/` (proyek Xcode), sama seperti P1. Buat proyek baru lewat [kmp.jetbrains.com](https://kmp.jetbrains.com), lalu salin isi `composeApp/src/` dari folder ini.
-3. Di `App.kt`, gunakan menu untuk berpindah antara Latihan 1-3 dan Solusi 1-3 (menu berbasis state sederhana, bukan Navigation Component — itu materi Pertemuan 5).
+   - **iOS** *(khusus Mac + Xcode)* — target iOS dinonaktifkan pada proyek Windows ini agar Gradle sync stabil. Untuk mencoba di iOS, aktifkan kembali target iOS pada Mac dan buat proyek Xcode melalui [Kotlin Multiplatform Wizard](https://kmp.jetbrains.com).
+3. Di `App.kt`, gunakan menu untuk berpindah antara Latihan 1-3 (menu berbasis state sederhana, bukan Navigation Component — itu materi Pertemuan 5).
 4. Buka file di `composeApp/src/commonMain/kotlin/.../latihan/`, lengkapi bagian `TODO`, lalu jalankan ulang untuk melihat hasilnya.
 
 ## Daftar Latihan
@@ -38,6 +38,14 @@ Buat `LoginForm(onLogin)` dengan field username, field password (tersembunyi), d
 Lengkapi `ProdukItem(produk)` agar menampilkan kotak warna (pengganti gambar produk), nama, dan harga di dalam `Card` + `Row`, lalu ditampilkan berulang untuk `daftarProdukContoh`.
 
 - **Konsep:** `data class`, `Card` + `Row` + `Column` bersarang, iterasi list dengan `forEach` (pengantar sebelum `LazyColumn` untuk list yang sangat panjang).
+
+## Bukti Hasil Android
+
+| Menu | Profile Card |
+| --- | --- |
+| ![Menu P3](assets/01-menu.png) | ![Profile Card P3](assets/02-profile-card.png) |
+| Login Form | Product List |
+| ![Login Form P3](assets/03-login-form.png) | ![Product List P3](assets/04-product-list.png) |
 
 ## Troubleshooting
 
